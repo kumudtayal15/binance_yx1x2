@@ -24,7 +24,8 @@ import pandas as pd
 import multiprocessing as mp
 import pairs
 import os
-os.environ["SSL_CERT_FILE"]="C:/Python39/lib/site-packages/certifi/cacert.pem"
+import certifi
+os.environ["SSL_CERT_FILE"]= certifi.where()
 
 # os.system("for /f %i in ('python -m certifi') do set SSL_CERT_FILE=%i")
 
