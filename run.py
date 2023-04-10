@@ -25,6 +25,9 @@ import multiprocessing as mp
 import pairs
 import os
 import certifi
+import threading
+
+
 os.environ["SSL_CERT_FILE"]= certifi.where()
 
 # os.system("for /f %i in ('python -m certifi') do set SSL_CERT_FILE=%i")
@@ -46,5 +49,5 @@ if __name__ == "__main__":
 	tickers = tickers.values.tolist()
 	for t in tickers:
 		print(t)
-		p = mp.Process(target = pairs.initialize,args = (t,client,))
+		p = threading.Thread(target = pairs.initialize,args = (t,client,))
 		p.start()
